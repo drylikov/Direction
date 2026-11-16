@@ -20,8 +20,7 @@ Detect the direction of text: left-to-right, right-to-left, or neutral.
 *   [Types](#types)
 *   [Compatibility](#compatibility)
 *   [Security](#security)
-*   [Contribute](#contribute)
-*   [License](#license)
+
 
 ## What is this?
 
