@@ -1,0 +1,125 @@
+
+# Direction .
+
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Size][size-badge]][size]
+
+Detect the direction of text: left-to-right, right-to-left, or neutral.
+
+## Contents
+
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
+*   [Install](#install)
+*   [Use](#use)
+*   [API](#api)
+    *   [`direction(value)`](#directionvalue)
+*   [CLI](#cli)
+*   [Types](#types)
+*   [Compatibility](#compatibility)
+*   [Security](#security)
+*   [Contribute](#contribute)
+*   [License](#license)
+
+## What is this?
+
+This package detects whether text is written left-to-right or right-to-left.
+
+## When should I use this?
+
+This is a simple and fast algorithm.
+It looks at the first strong left-to-right or right-to-left character (for
+example, the letter `a` is LTR, the letter `ى` is RTL).
+That’s often enough but might be too naïve as it doesn’t take percentages or so
+into account.
+
+## Install
+
+This package is [ESM only][esm].
+In Node.js (version 14.14+, 16.0+), install with [npm][]:
+
+```sh
+npm install direction
+```
+
+In Deno with [`esm.sh`][esmsh]:
+
+```js
+import {direction} from 'https://esm.sh/direction@2'
+```
+
+In browsers with [`esm.sh`][esmsh]:
+
+```html
+<script type="module">
+  import {direction} from 'https://esm.sh/direction@2?bundle'
+</script>
+```
+
+## Use
+
+```js
+import {direction} from 'direction'
+
+direction('A') // => 'ltr'
+direction('anglais') // => 'ltr'
+direction('بسيطة') // => 'rtl'
+direction('@') // => 'neutral'
+```
+
+## API
+
+This package exports the identifier `direction`.
+There is no default export.
+
+### `direction(value)`
+
+Get the direction from a given value.
+
+###### `value`
+
+Value to check (`string`, required).
+
+##### Returns
+
+Direction for `value` (`'ltr'`, `'rtl'`, or `'neutral'`).
+
+## CLI
+
+```txt
+Usage: direction [options] <words...>
+
+Detect the direction of text: left-to-right, right-to-left, or neutral
+
+Options:
+
+  -h, --help           output usage information
+  -v, --version        output version number
+
+Usage:
+
+# output directionality
+$ direction @
+# neutral
+
+# output directionality from stdin
+$ echo 'الانجليزية' | direction
+# rtl
+```
+
+## Types
+
+This package is fully typed with [TypeScript][].
+It exports no additional types.
+
+## Compatibility
+
+This package is at least compatible with all maintained versions of Node.js.
+As of now, that is Node.js 14.14+ and 16.0+.
+It also works in Deno and modern browsers.
+
+## Security
+
+This package is safe.
